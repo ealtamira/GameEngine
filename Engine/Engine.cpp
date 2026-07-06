@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include "framework.h"
+#include "Renderer.h"
 #include <iostream>
 
 //#ifdef _DEBUG
@@ -11,14 +12,14 @@
 //#define TEXT "XBOX\n"
 //#endif
 
-#define TEXT "hello!\n"
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
+//#define TEXT "hello!\n"
+//#define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 void fnEngine()
 {
-	std::cout << "Hello from Engine!" << std::endl;
+	//std::cout << "Hello from Engine!" << std::endl;
 	//std::cout << "Hello, World!" << std::endl;
-	std::cout << MAX(5, 10);
+	//std::cout << MAX(5, 10);
 }
 
 
