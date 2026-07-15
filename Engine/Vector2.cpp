@@ -28,6 +28,16 @@ namespace nu
     Vector2& Vector2::operator*=(float scalar) { x *= scalar; y *= scalar; return *this; }
     Vector2& Vector2::operator/=(float scalar) { x /= scalar; y /= scalar; return *this; }
 
+    Vector2 Vector2::operator+(float scalar) const { return Vector2(x + scalar, y + scalar); }
+    Vector2 Vector2::operator-(float scalar) const { return Vector2(x - scalar, y - scalar); }
+    Vector2& Vector2::operator+=(float scalar) { x += scalar; y += scalar; return *this; }
+    Vector2& Vector2::operator-=(float scalar) { x -= scalar; y -= scalar; return *this; }
+
+    Vector2 Vector2::operator*(const Vector2& v) const { return Vector2(x * v.x, y * v.y); }
+    Vector2 Vector2::operator/(const Vector2& v) const { return Vector2(x / v.x, y / v.y); }
+    Vector2& Vector2::operator*=(const Vector2& v) { x *= v.x; y *= v.y; return *this; }
+    Vector2& Vector2::operator/=(const Vector2& v) { x /= v.x; y /= v.y; return *this; }
+
     float Vector2::Length() const { return std::sqrt(x * x + y * y); }
     float Vector2::LengthSqr() const { return (x * x + y * y); }
 

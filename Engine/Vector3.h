@@ -24,6 +24,16 @@ namespace nu
         Vector3& operator*=(float scalar);
         Vector3& operator/=(float scalar);
 
+        Vector3 operator+(float scalar) const;
+        Vector3 operator-(float scalar) const;
+        Vector3& operator+=(float scalar);
+        Vector3& operator-=(float scalar);
+
+        Vector3 operator*(const Vector3& v) const;
+        Vector3 operator/(const Vector3& v) const;
+        Vector3& operator*=(const Vector3& v);
+        Vector3& operator/=(const Vector3& v);
+
         float Length() const;
         float LengthSqr() const;
         Vector3 Normalized() const;
