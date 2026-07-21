@@ -6,6 +6,8 @@
 #include "Renderer.h"
 #include "Input.h"
 #include "Vector2.h"
+#include "Mesh.h"
+#include "Model.h"
 #include <iostream>
 #include <vector>
 
