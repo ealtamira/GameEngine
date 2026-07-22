@@ -2,14 +2,17 @@
 //
 
 #include "pch.h"
+
 #include "framework.h"
 #include "Renderer.h"
 #include "Input.h"
 #include "Vector2.h"
 #include "Mesh.h"
 #include "Model.h"
+#include <cmath>
 #include <iostream>
 #include <vector>
+#include <fmod.hpp>
 
 //#ifdef _DEBUG
 //#define TEXT "PS5\n"
