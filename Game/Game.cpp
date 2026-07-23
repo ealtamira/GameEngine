@@ -1,8 +1,49 @@
 #include "../Engine/Engine.cpp" 
 
 int main() {
+    std::cout << "Directory Operations:\n";
+    std::cout << "Working directory: " << nu::GetWorkingDirectory() << "\n";
+
+    std::cout << "Setting directory to 'Assets'...\n";
+    nu::SetWorkingDirectory("Assets");
+    std::cout << "New directory: " << nu::GetWorkingDirectory() << "\n\n";
+
+    std::cout << "Files in Directory:\n";
+    auto filenames = nu::GetFilesInDirectory(nu::GetWorkingDirectory());
+    for (const auto& filename : filenames)
+    {
+        std::cout << filename << "\n";
+    }
+    std::cout << "\n";
+
+    if (!filenames.empty())
+    {
+        std::string str = nu::GetFilename(filenames[0]);
+        std::cout << "Filename: " << str << "\n";
+
+        str = nu::GetFileExtension(filenames[0]);
+        std::cout << "Extension: " << str << "\n";
+
+        str = nu::GetFilenameNoExtension(filenames[0]);
+        std::cout << "Filename No Extension: " << str << "\n\n";
+    }
+
+    std::cout << "Text File Reading:\n";
+    std::string str;
+    if (nu::ReadTextFile("test.txt", str))
+    {
+        std::cout << str << "\n";
+    }
+
+    std::cout << "Text File Writing:\n";
+    nu::WriteTextFile("test.txt", "Hello, World!", true);
+    if (nu::ReadTextFile("test.txt", str))
+    {
+        std::cout << str << "\n";
+    }
+
     nu::Renderer renderer;
-    renderer.Initialize("Nu Game Engine - Vector Cat & Soundboard", 1024, 720);
+    renderer.Initialize("Nu Game Engine - File System & Soundboard", 1024, 720);
 
     nu::Input input;
 
@@ -15,18 +56,14 @@ int main() {
     std::vector<FMOD::Sound*> sounds;
     FMOD::Sound* sound = nullptr;
 
-    audio->createSound("mario.mp3", FMOD_DEFAULT, 0, &sound);
+    audio->createSound("kick.wav", FMOD_DEFAULT, 0, &sound);
     sounds.push_back(sound);
-
     audio->createSound("snare.wav", FMOD_DEFAULT, 0, &sound);
     sounds.push_back(sound);
-
-    audio->createSound("hee-hee.mp3", FMOD_DEFAULT, 0, &sound);
+    audio->createSound("hihat.wav", FMOD_DEFAULT, 0, &sound);
     sounds.push_back(sound);
-
     audio->createSound("clap.wav", FMOD_DEFAULT, 0, &sound);
     sounds.push_back(sound);
-
     audio->createSound("cowbell.wav", FMOD_DEFAULT, 0, &sound);
     sounds.push_back(sound);
 
