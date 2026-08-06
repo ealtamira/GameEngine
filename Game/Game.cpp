@@ -4,6 +4,8 @@
 int main() {
     nu::Renderer renderer;
     renderer.Initialize("Game Engine", 1024, 720);
+    std::shared_ptr<nu::Texture> texture = std::make_shared<nu::Texture>();
+    texture->Load("Img/googly-a.png", renderer);
 
     SDL_Event e;
     bool quit = false;
@@ -20,24 +22,7 @@ int main() {
 
         renderer.SetColor(0, 0, 0);
         renderer.Clear();
-
-        for (int i = 0; i < 20; i++)
-        {
-            renderer.SetColor(rand() % 256, rand() % 256, rand() % 256);
-            renderer.DrawPoint(rand() % 1024, rand() % 720);
-        }
-
-        for (int i = 0; i < 10; i++)
-        {
-            renderer.SetColor(rand() % 256, rand() % 256, rand() % 256);
-            renderer.DrawLine(rand() % 1024, rand() % 720, rand() % 1024, rand() % 720);
-        }
-
-        for (int i = 0; i < 10; i++)
-        {
-            renderer.SetColor(rand() % 256, rand() % 256, rand() % 256);
-            renderer.DrawFillRect(rand() % 400, rand() % 400, rand() % 50, rand() % 50);
-        }
+        renderer.DrawTexture(texture.get(), 300.0f, 200.0f);
 
         renderer.Present();
     }

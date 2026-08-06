@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 
 namespace nu
 {
@@ -18,9 +19,10 @@ namespace nu
         void DrawRect(float x, float y, float w, float h);
         void DrawFillRect(float x, float y, float w, float h);
         void DrawLine(float x1, float y1, float x2, float y2);
+        void DrawTexture(class Texture* texture, float x, float y);
 
         SDL_Renderer* GetRenderer() const;
-
+        friend class Texture;
     private:
         SDL_Window* m_window = nullptr;
         SDL_Renderer* m_renderer = nullptr;

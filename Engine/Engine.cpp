@@ -17,6 +17,9 @@
 #include "Audio.h"
 #include <string>
 #include <ctime>
+#include <memory>
+#include "Texture.h"
+
 
 namespace nu
 {
