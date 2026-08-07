@@ -1,4 +1,5 @@
 #pragma once
+#include "Resource.h"
 #include "Vector2.h"
 #include <string>
 
@@ -6,7 +7,7 @@ struct SDL_Texture;
 
 namespace nu
 {
-    class Texture
+    class Texture : public Resource
     {
     public:
         Texture() = default;

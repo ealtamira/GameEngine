@@ -19,6 +19,8 @@
 #include <ctime>
 #include <memory>
 #include "Texture.h"
+#include "ResourceManager.h"
+
 
 
 namespace nu
