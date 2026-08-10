@@ -1,8 +1,13 @@
 #include "pch.h"
 #include "Text.h"
+#include <iostream>
 
 namespace nu
 {
+    Text::Text(std::shared_ptr<Font> font) : m_font(font)
+    {
+    }
+
     Text::~Text()
     {
         if (m_texture)
@@ -13,6 +18,11 @@ namespace nu
 
     bool Text::Create(Renderer& renderer, const std::string& text, const Color& color)
     {
+        if (!m_font || !m_font->GetFont())
+        {
+            return false;
+        }
+
         if (m_texture)
         {
             SDL_DestroyTexture(m_texture);

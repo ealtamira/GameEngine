@@ -16,6 +16,8 @@ namespace nu
         bool Load(const std::string& filename, class Renderer& renderer);
         Vector2 GetSize();
 
+        SDL_Texture* GetTexture() const { return m_texture; }
+
         friend class Renderer;
 
     private:

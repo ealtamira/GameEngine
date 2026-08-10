@@ -31,7 +31,7 @@ namespace nu
 
         if (!m_font)
         {
-            std::cerr << "Failed to load font: " << filename << " | Error: " << SDL_GetError() << std::endl;
+            SDL_Log("Failed to load font: %s | Error: %s", filename.c_str(), SDL_GetError());
             return false;
         }
 

@@ -1,27 +1,26 @@
 #pragma once
+#include "Color.h"
 #include "Font.h"
+#include "Renderer.h"
 #include <string>
-
-struct SDL_Texture;
+#include <memory>
+#include <SDL3/SDL.h>
 
 namespace nu
 {
-    class Renderer;
-
-    struct Color { float r, g, b; };
-
     class Text
     {
     public:
-        Text() = default;
-        Text(res_t<Font> font) : m_font{ font } {}
+        Text(std::shared_ptr<Font> font);
         ~Text();
 
         bool Create(Renderer& renderer, const std::string& text, const Color& color);
         void Draw(Renderer& renderer, float x, float y);
 
     private:
-        res_t<Font> m_font;
+        std::shared_ptr<Font> m_font;
         SDL_Texture* m_texture{ nullptr };
+        int m_width{ 0 };
+        int m_height{ 0 };
     };
 }

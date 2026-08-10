@@ -14,6 +14,8 @@ namespace nu
         bool Load(const std::string& filename, float fontSize);
         void Close();
 
+        TTF_Font* GetFont() const { return m_font; }
+
         friend class Text;
 
     private:
