@@ -21,6 +21,12 @@
 #include "Texture.h"
 #include "ResourceManager.h"
 #include "Json.h"
+#include "Factory.h"
+#include "Object.h"
+#include "Creator.h"
+#include "Player.h"
+#include "Enemy.h"
+#include "Projectile.h"
 
 namespace nu
 {
