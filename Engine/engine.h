@@ -1,5 +1,26 @@
 #pragma once
 #include "Audio.h"
+#include "framework.h"
+#include "Renderer.h"
+#include "Input.h"
+#include "Vector2.h"
+#include "Mesh.h"
+#include "Model.h"
+#include "File.h"
+#include <cmath>
+#include <cstdlib> 
+#include <iostream>
+#include <vector>
+#include <fmod.hpp>
+#include "ParticleSystem.h"
+#include "Font.h"
+#include "Text.h"
+#include <string>
+#include <ctime>
+#include <memory>
+#include "Texture.h"
+#include "ResourceManager.h"
+#include "Json.h"
 
 namespace nu
 {
