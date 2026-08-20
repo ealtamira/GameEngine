@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include <rapidjson/document.h>
 
 class TransformComponent : public Component {
 public:
@@ -11,5 +12,6 @@ public:
     TransformComponent(Actor* owner, float startX = 0.0f, float startY = 0.0f, float w = 0.0f, float h = 0.0f);
 
     void Update(float deltaTime) override {}
+    void Read(const rapidjson::Value& value) override;
     std::unique_ptr<Component> Clone(Actor* newOwner) const override;
 };

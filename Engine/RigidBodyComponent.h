@@ -8,8 +8,10 @@ public:
     float accelerationX;
     float accelerationY;
 
-    RigidBodyComponent(Actor* owner, float vx = 0.0f, float vy = 0.0f);
+    RigidBodyComponent(Actor* owner);
+    RigidBodyComponent(Actor* owner, float vx, float vy);
 
     void Update(float deltaTime) override;
+    void Read(const rapidjson::Value& value) override;
     std::unique_ptr<Component> Clone(Actor* newOwner) const override;
 };

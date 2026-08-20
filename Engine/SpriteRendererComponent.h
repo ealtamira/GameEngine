@@ -9,10 +9,12 @@ namespace nu {
 
 class SpriteRendererComponent : public Component {
 public:
+    SpriteRendererComponent(Actor* owner);
     SpriteRendererComponent(Actor* owner, std::shared_ptr<nu::Texture> texture, nu::Renderer* renderer);
 
     void Update(float dt) override {}
     void Draw() override;
+    void Read(const rapidjson::Value& value) override;
 
     std::unique_ptr<Component> Clone(Actor* newOwner) const override;
 

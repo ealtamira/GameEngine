@@ -28,30 +28,35 @@
 #include "SpriteRendererComponent.h"
 #include "RigidBodyComponent.h"
 #include "CircleColliderComponent.h"
+#include "PrototypeManager.h"
+#include "TransformComponent.h"
+#include <rapidjson/document.h>
 
 namespace nu
 {
-	class Engine
-	{
-	public:
-		static Engine& Get()
-		{
-			static Engine instance;
-			return instance;
-		}
+    class Engine
+    {
+    public:
+        static Engine& Get()
+        {
+            static Engine instance;
+            return instance;
+        }
 
-		bool Initialize();
-		void Update(float dt);
-		void Shutdown();
+        bool Initialize();
+        void Update(float dt);
+        void Shutdown();
 
-		Audio& GetAudio() { return m_audio; }
+        Audio& GetAudio() { return m_audio; }
+        Renderer& GetRenderer() { return m_renderer; }
 
-	private:
-		Engine() = default;
-		~Engine() = default;
-		Engine(const Engine&) = delete;
-		Engine& operator=(const Engine&) = delete;
+    private:
+        Engine() = default;
+        ~Engine() = default;
+        Engine(const Engine&) = delete;
+        Engine& operator=(const Engine&) = delete;
 
-		Audio m_audio;
-	};
+        Audio m_audio;
+        Renderer m_renderer;
+    };
 }

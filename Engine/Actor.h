@@ -4,13 +4,22 @@
 #include <memory>
 #include <algorithm>
 #include <utility>
+#include <string>
+#include <rapidjson/document.h>
 #include "Component.h"
+#include "ISerializable.h"
 
-class Actor {
+class Actor : public ISerializable {
 private:
     std::vector<std::unique_ptr<Component>> components;
 
 public:
+    std::string name;
+    std::string tag;
+    float x{ 0.0f }, y{ 0.0f };
+    float scale{ 1.0f };
+    float rotation{ 0.0f };
+
     Actor();
     virtual ~Actor();
 
@@ -40,4 +49,6 @@ public:
 
     virtual void Update(float deltaTime);
     virtual void Draw();
+
+    void Read(const rapidjson::Value& value) override;
 };
