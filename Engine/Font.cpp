@@ -27,14 +27,16 @@ namespace nu
             TTF_Init();
         }
 
-        m_font = TTF_OpenFont(filename.c_str(), fontSize);
+        TTF_Font* loadedFont = TTF_OpenFont(filename.c_str(), fontSize);
 
-        if (!m_font)
+        if (!loadedFont)
         {
             SDL_Log("Failed to load font: %s | Error: %s", filename.c_str(), SDL_GetError());
+            m_font = nullptr;
             return false;
         }
 
+        m_font = loadedFont;
         return true;
     }
 }

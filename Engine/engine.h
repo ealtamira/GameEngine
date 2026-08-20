@@ -24,9 +24,10 @@
 #include "Factory.h"
 #include "Object.h"
 #include "Creator.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "Projectile.h"
+#include "Actor.h"
+#include "SpriteRendererComponent.h"
+#include "RigidBodyComponent.h"
+#include "CircleColliderComponent.h"
 
 namespace nu
 {
