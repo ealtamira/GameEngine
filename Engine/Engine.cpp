@@ -12,18 +12,24 @@ namespace nu
             return false;
         }
 
+        if (!m_physics.Initialize())
+        {
+            std::cerr << "Failed to initialize Physics system!" << std::endl;
+            return false;
+        }
+
         return true;
-
-
     }
 
     void Engine::Update(float dt)
     {
         m_audio.Update();
+        m_physics.Update(dt);
     }
 
     void Engine::Shutdown()
     {
         m_audio.Shutdown();
+        m_physics.Shutdown();
     }
 }

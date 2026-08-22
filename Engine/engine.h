@@ -31,6 +31,7 @@
 #include "PrototypeManager.h"
 #include "TransformComponent.h"
 #include <rapidjson/document.h>
+#include "Physics.h"
 
 namespace nu
 {
@@ -50,6 +51,8 @@ namespace nu
         Audio& GetAudio() { return m_audio; }
         Renderer& GetRenderer() { return m_renderer; }
 
+        Physics& GetPhysics() { return m_physics; }
+
     private:
         Engine() = default;
         ~Engine() = default;
@@ -58,5 +61,7 @@ namespace nu
 
         Audio m_audio;
         Renderer m_renderer;
+
+        Physics m_physics;
     };
 }
