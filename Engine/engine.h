@@ -1,36 +1,7 @@
 #pragma once
+
 #include "Audio.h"
-#include "framework.h"
 #include "Renderer.h"
-#include "Input.h"
-#include "Vector2.h"
-#include "Mesh.h"
-#include "Model.h"
-#include "File.h"
-#include <cmath>
-#include <cstdlib> 
-#include <iostream>
-#include <vector>
-#include <fmod.hpp>
-#include "ParticleSystem.h"
-#include "Font.h"
-#include "Text.h"
-#include <string>
-#include <ctime>
-#include <memory>
-#include "Texture.h"
-#include "ResourceManager.h"
-#include "Json.h"
-#include "Factory.h"
-#include "Object.h"
-#include "Creator.h"
-#include "Actor.h"
-#include "SpriteRendererComponent.h"
-#include "RigidBodyComponent.h"
-#include "CircleColliderComponent.h"
-#include "PrototypeManager.h"
-#include "TransformComponent.h"
-#include <rapidjson/document.h>
 #include "Physics.h"
 
 namespace nu
@@ -50,7 +21,6 @@ namespace nu
 
         Audio& GetAudio() { return m_audio; }
         Renderer& GetRenderer() { return m_renderer; }
-
         Physics& GetPhysics() { return m_physics; }
 
     private:
@@ -61,7 +31,6 @@ namespace nu
 
         Audio m_audio;
         Renderer m_renderer;
-
         Physics m_physics;
     };
 }

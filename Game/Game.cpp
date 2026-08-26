@@ -1,4 +1,15 @@
-#include "../Engine/Engine.cpp"
+#include "../Engine/pch.h"
+#include "../Engine/Engine.h"
+#include "../Engine/Input.h"
+#include "../Engine/ResourceManager.h"
+#include "../Engine/Font.h"
+#include "../Engine/Text.h"
+#include "../Engine/Texture.h"
+#include "../Engine/Actor.h"
+#include "../Engine/TransformComponent.h"
+#include "../Engine/SpriteRendererComponent.h"
+#include "../Engine/RigidBodyComponent.h"
+#include "../Engine/CircleColliderComponent.h"
 
 enum class GameState
 {
