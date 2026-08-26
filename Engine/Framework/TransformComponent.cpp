@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "TransformComponent.h"
-#include "Json.h"
+#include "../Serialization/Json.h"
 
 TransformComponent::TransformComponent(Actor* owner, float startX, float startY, float w, float h)
     : Component(owner), x(startX), y(startY), width(w), height(h) {

@@ -2,10 +2,10 @@
 #include "SpriteRendererComponent.h"
 #include "Actor.h"
 #include "TransformComponent.h"
-#include "Renderer.h"
-#include "ResourceManager.h"
-#include "Texture.h"
-#include "Engine.h"
+#include "../Renderer/Renderer.h"
+#include "../Resources/ResourceManager.h"
+#include "../Renderer/Texture.h"
+#include "../Engine.h"
 
 
 

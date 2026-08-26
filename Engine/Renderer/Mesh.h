@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <cstdint>
-#include "Vector2.h"
+#include "../Math/Vector2.h"
 
 namespace nu
 {

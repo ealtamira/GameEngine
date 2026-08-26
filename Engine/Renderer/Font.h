@@ -1,5 +1,5 @@
 #pragma once
-#include "Resource.h"
+#include "../Resources/Resource.h"
 #include <SDL3_ttf/SDL_ttf.h>
 #include <string>
 

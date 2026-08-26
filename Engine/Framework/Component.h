@@ -2,7 +2,7 @@
 
 #include <memory>
 #include <rapidjson/document.h>
-#include "ISerializable.h"
+#include "../Serialization/ISerializable.h"
 
 class Actor;
 

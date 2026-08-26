@@ -7,7 +7,7 @@
 #include <string>
 #include <rapidjson/document.h>
 #include "Component.h"
-#include "ISerializable.h"
+#include "../Serialization/ISerializable.h"
 
 class Actor : public ISerializable {
 private:

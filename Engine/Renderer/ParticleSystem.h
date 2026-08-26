@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include "Vector2.h"
-#include "Color.h" 
+#include "../Math/Vector2.h"
+#include "../Math/Color.h"
 
 namespace nu
 {

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Audio.h"
-#include "Renderer.h"
-#include "Physics.h"
+#include "Audio/Audio.h"
+#include "Renderer/Renderer.h"
+#include "Physics/Physics.h"
 
 namespace nu
 {

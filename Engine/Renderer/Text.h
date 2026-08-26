@@ -1,5 +1,5 @@
 #pragma once
-#include "Color.h"
+#include "../Math/Color.h"
 #include "Font.h"
 #include "Renderer.h"
 #include <string>
