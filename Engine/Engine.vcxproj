@@ -214,6 +214,8 @@
     <ClInclude Include="Resources\ResourceManager.h" />
     <ClInclude Include="Serialization\ISerializable.h" />
     <ClInclude Include="Serialization\Json.h" />
+    <ClInclude Include="SpriteAnimationRendererComponent.h" />
+    <ClInclude Include="TextureFrames.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio\Audio.cpp" />
@@ -246,6 +248,8 @@
     <ClCompile Include="Renderer\Text.cpp" />
     <ClCompile Include="Renderer\Texture.cpp" />
     <ClCompile Include="Serialization\Json.cpp" />
+    <ClCompile Include="SpriteAnimationRendererComponent.cpp" />
+    <ClCompile Include="TextureFrames.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

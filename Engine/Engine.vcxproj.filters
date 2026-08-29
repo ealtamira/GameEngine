@@ -143,6 +143,12 @@
     <ClInclude Include="Resources\ResourceManager.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="TextureFrames.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimationRendererComponent.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -219,6 +225,12 @@
     </ClCompile>
     <ClCompile Include="Physics\Physics.cpp">
       <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureFrames.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimationRendererComponent.cpp">
+      <Filter>Renderer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
