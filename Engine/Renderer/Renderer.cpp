@@ -86,6 +86,16 @@ namespace nu
         SDL_RenderTexture(m_renderer, texture->m_texture, NULL, &destRect);
     }
 
+    void Renderer::DrawSprite(Texture* texture, float srcX, float srcY, float srcW, float srcH, float destX, float destY, float destW, float destH)
+    {
+        if (!texture || !m_renderer) return;
+
+        SDL_FRect srcRect = { srcX, srcY, srcW, srcH };
+        SDL_FRect destRect = { destX, destY, destW, destH };
+
+        SDL_RenderTexture(m_renderer, texture->GetTexture(), &srcRect, &destRect);
+    }
+
     SDL_Renderer* Renderer::GetRenderer() const
     {
         return m_renderer;

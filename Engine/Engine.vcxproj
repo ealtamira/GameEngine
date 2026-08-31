@@ -195,12 +195,14 @@
     <ClInclude Include="Framework\PrototypeManager.h" />
     <ClInclude Include="Framework\RigidBodyComponent.h" />
     <ClInclude Include="Framework\SpriteRendererComponent.h" />
+    <ClInclude Include="Framework\TilemapRendererComponent.h" />
     <ClInclude Include="Framework\TransformComponent.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="Math\Color.h" />
     <ClInclude Include="Math\Transform.h" />
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="nlohmann\json.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Physics\Physics.h" />
     <ClInclude Include="Renderer\Font.h" />
@@ -216,6 +218,7 @@
     <ClInclude Include="Serialization\Json.h" />
     <ClInclude Include="SpriteAnimationRendererComponent.h" />
     <ClInclude Include="TextureFrames.h" />
+    <ClInclude Include="Tilemap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio\Audio.cpp" />
@@ -228,6 +231,7 @@
     <ClCompile Include="Framework\PrototypeManager.cpp" />
     <ClCompile Include="Framework\RigidBodyComponent.cpp" />
     <ClCompile Include="Framework\SpriteRendererComponent.cpp" />
+    <ClCompile Include="Framework\TilemapRendererComponent.cpp" />
     <ClCompile Include="Framework\TransformComponent.cpp" />
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Math\Transform.cpp" />
@@ -250,6 +254,7 @@
     <ClCompile Include="Serialization\Json.cpp" />
     <ClCompile Include="SpriteAnimationRendererComponent.cpp" />
     <ClCompile Include="TextureFrames.cpp" />
+    <ClCompile Include="Tilemap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

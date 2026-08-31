@@ -20,6 +20,7 @@ namespace nu
         void DrawFillRect(float x, float y, float w, float h);
         void DrawLine(float x1, float y1, float x2, float y2);
         void DrawTexture(class Texture* texture, float x, float y);
+        void DrawSprite(class Texture* texture, float srcX, float srcY, float srcW, float srcH, float destX, float destY, float destW, float destH);
 
         SDL_Renderer* GetRenderer() const;
         friend class Texture;

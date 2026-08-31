@@ -9,34 +9,28 @@
 #include "../Engine/Framework/TransformComponent.h"
 #include "../Engine/TextureFrames.h"
 #include "../Engine/SpriteAnimationRendererComponent.h"
+#include "../Engine/Tilemap.h"
+#include "../Engine/Framework/TilemapRendererComponent.h"
 
 int main()
 {
     nu::Renderer renderer;
-    renderer.Initialize("Nu Game Engine - Animation Test", 1024, 720);
+    renderer.Initialize("Nu Game Engine - Tilemap Test", 1024, 720);
 
     nu::Input input;
     nu::Engine::Get().Initialize();
 
-    auto enemyAnimTexture = nu::Resources().Get<nu::Texture>("Img/reaper-sprite.png", renderer);
-    if (!enemyAnimTexture || !enemyAnimTexture->GetTexture())
+    auto mapTilemap = nu::Resources().Get<nu::Tilemap>("map.json", renderer);
+    if (!mapTilemap)
     {
-        SDL_Log("Failed to load reaper-sprite.png!");
+        SDL_Log("CRITICAL: Failed to load map.json!");
     }
 
-    auto enemyTextureFrames = std::make_shared<nu::TextureFrames>(enemyAnimTexture.get());
-
-    for (int i = 0; i < 7; ++i) {
-        enemyTextureFrames->AddFrame({ i * 64, 0, 64, 64 });
-    }
-
-    auto animatedActor = std::make_unique<Actor>();
-    animatedActor->AddComponent<TransformComponent>(512.0f, 360.0f);
-    animatedActor->scale = 3.0f;
-
-    auto* animRenderer = animatedActor->AddComponent<nu::SpriteAnimationRendererComponent>();
-    animRenderer->SetTextureFrames(enemyTextureFrames, 0.15f);
-    animRenderer->SetRenderer(&renderer);
+    auto mapActor = std::make_unique<Actor>();
+    mapActor->AddComponent<TransformComponent>(0.0f, 0.0f);
+    auto* tilemapRenderer = mapActor->AddComponent<nu::TilemapRendererComponent>();
+    tilemapRenderer->SetRenderer(&renderer);
+    tilemapRenderer->SetTilemap(mapTilemap);
 
     SDL_Event e;
     bool quit = false;
@@ -60,12 +54,12 @@ int main()
         input.Update();
         nu::Engine::Get().Update(dt);
 
-        animatedActor->Update(dt);
+        mapActor->Update(dt);
 
         renderer.SetColor(30, 30, 40);
         renderer.Clear();
 
-        animatedActor->Draw();
+        mapActor->Draw();
 
         renderer.Present();
     }
