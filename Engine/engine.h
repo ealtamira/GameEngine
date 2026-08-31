@@ -3,6 +3,7 @@
 #include "Audio/Audio.h"
 #include "Renderer/Renderer.h"
 #include "Physics/Physics.h"
+#include "Input/Input.h"
 
 namespace nu
 {
@@ -22,6 +23,7 @@ namespace nu
         Audio& GetAudio() { return m_audio; }
         Renderer& GetRenderer() { return m_renderer; }
         Physics& GetPhysics() { return m_physics; }
+        Input& GetInput() { return m_input; }
 
     private:
         Engine() = default;
@@ -32,5 +34,6 @@ namespace nu
         Audio m_audio;
         Renderer m_renderer;
         Physics m_physics;
+        Input m_input;
     };
 }

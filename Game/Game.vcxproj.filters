@@ -13,10 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\SpriteGame">
+      <UniqueIdentifier>{a710762e-e4bb-4e73-a3c6-c034217705b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpaceGame">
+      <UniqueIdentifier>{c697b285-39c4-4563-85e4-177cd64b7cf5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteGame\SpriteGame.cpp">
+      <Filter>Source Files\SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceGame\SpaceGame.cpp">
+      <Filter>Source Files\SpaceGame</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SpriteGame\SpriteGame.h">
+      <Filter>Source Files\SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceGame\SpaceGame.h">
+      <Filter>Source Files\SpaceGame</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

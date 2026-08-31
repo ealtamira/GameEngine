@@ -1,36 +1,48 @@
 #include "../Engine/pch.h"
 #include "../Engine/Engine.h"
-#include "../Engine/Input/Input.h"
 #include "../Engine/Resources/ResourceManager.h"
-#include "../Engine/Renderer/Font.h"
-#include "../Engine/Renderer/Text.h"
-#include "../Engine/Renderer/Texture.h"
-#include "../Engine/Framework/Actor.h"
-#include "../Engine/Framework/TransformComponent.h"
-#include "../Engine/TextureFrames.h"
-#include "../Engine/SpriteAnimationRendererComponent.h"
-#include "../Engine/Tilemap.h"
-#include "../Engine/Framework/TilemapRendererComponent.h"
+#include "../Engine/Core/File.h"
+#include "SpaceGame/SpaceGame.h"
+#include <memory>
+#include <vector>
 
 int main()
 {
-    nu::Renderer renderer;
-    renderer.Initialize("Nu Game Engine - Tilemap Test", 1024, 720);
+    auto& renderer = nu::Engine::Get().GetRenderer();
+    renderer.Initialize("Nu Game Engine - Remastered", 1024, 720);
 
-    nu::Input input;
     nu::Engine::Get().Initialize();
 
-    auto mapTilemap = nu::Resources().Get<nu::Tilemap>("map.json", renderer);
-    if (!mapTilemap)
+    const std::string startupDir = nu::GetWorkingDirectory();
+    auto tryAssetRoot = [&](const std::string& path)
     {
-        SDL_Log("CRITICAL: Failed to load map.json!");
+        nu::SetWorkingDirectory(startupDir);
+        if (!nu::SetWorkingDirectory(path)) return false;
+        return nu::FileExists("Img/darkPurple.png") && nu::FileExists("fonts/Western.ttf");
+    };
+
+    if (!tryAssetRoot("."))
+    {
+        const std::vector<std::string> candidates = {
+            "Assets/SpriteGame",
+            "Build/Assets/SpriteGame",
+            "../Build/Assets/SpriteGame",
+            "../../Build/Assets/SpriteGame",
+            "Assets/SpaceGame",
+            "Build/Assets/SpaceGame",
+            "../Build/Assets/SpaceGame",
+            "../../Build/Assets/SpaceGame",
+            "Build"
+        };
+
+        for (const auto& candidate : candidates)
+        {
+            if (tryAssetRoot(candidate)) break;
+        }
     }
 
-    auto mapActor = std::make_unique<Actor>();
-    mapActor->AddComponent<TransformComponent>(0.0f, 0.0f);
-    auto* tilemapRenderer = mapActor->AddComponent<nu::TilemapRendererComponent>();
-    tilemapRenderer->SetRenderer(&renderer);
-    tilemapRenderer->SetTilemap(mapTilemap);
+    std::unique_ptr<SpaceGame> game = std::make_unique<SpaceGame>();
+    game->Initialize();
 
     SDL_Event e;
     bool quit = false;
@@ -39,30 +51,28 @@ int main()
     while (!quit)
     {
         Uint32 currTime = SDL_GetTicks();
-        float dt = static_cast<float>(currTime - prevTime) / 1000.0f;
+        float dt = (currTime - prevTime) / 1000.0f;
         if (dt > 0.05f) dt = 0.05f;
         prevTime = currTime;
 
         while (SDL_PollEvent(&e))
         {
-            if (e.type == SDL_EVENT_QUIT || (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_ESCAPE))
-            {
-                quit = true;
-            }
+            if (e.type == SDL_EVENT_QUIT) quit = true;
         }
 
-        input.Update();
         nu::Engine::Get().Update(dt);
 
-        mapActor->Update(dt);
+        game->Update(dt);
 
-        renderer.SetColor(30, 30, 40);
+        renderer.SetColor(0, 0, 0);
         renderer.Clear();
 
-        mapActor->Draw();
+        game->Draw(renderer);
 
         renderer.Present();
     }
+
+    game.reset();
 
     nu::Resources().RemoveAll();
     nu::Engine::Get().Shutdown();

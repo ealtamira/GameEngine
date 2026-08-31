@@ -22,6 +22,7 @@ namespace nu
 
     void Engine::Update(float dt)
     {
+        m_input.Update();
         m_audio.Update();
         m_physics.Update(dt);
     }

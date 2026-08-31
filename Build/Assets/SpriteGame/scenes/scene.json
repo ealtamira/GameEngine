@@ -1,0 +1,35 @@
+{
+  "prototypes": [
+    {
+      "name": "Bullet",
+      "tag": "Bullet",
+      "components": [
+        { "type": "SpriteRenderer", "texture": "Img/bullet.png" },
+        { "type": "RigidBody", "velocityY": -500.0 },
+        { "type": "CircleCollider", "radius": 5.0 }
+      ]
+    },
+    {
+      "name": "Enemy",
+      "tag": "Enemy",
+      "components": [
+        { "type": "SpriteRenderer", "texture": "Img/enemy.png" },
+        { "type": "RigidBody", "velocityY": 150.0 },
+        { "type": "CircleCollider", "radius": 20.0 }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "name": "Player",
+      "tag": "Player",
+      "x": 512.0,
+      "y": 360.0,
+      "components": [
+        { "type": "SpriteRenderer", "texture": "Img/player.png" },
+        { "type": "RigidBody" },
+        { "type": "CircleCollider", "radius": 20.0 }
+      ]
+    }
+  ]
+}
