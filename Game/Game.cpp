@@ -2,24 +2,24 @@
 #include "../Engine/Engine.h"
 #include "../Engine/Resources/ResourceManager.h"
 #include "../Engine/Core/File.h"
-#include "SpaceGame/SpaceGame.h"
+#include "../Game/SpriteGame/SpriteGame.h"
 #include <memory>
 #include <vector>
 
 int main()
 {
     auto& renderer = nu::Engine::Get().GetRenderer();
-    renderer.Initialize("Nu Game Engine - Remastered", 1024, 720);
+    renderer.Initialize("Nu Game Engine - Town Brawler", 1024, 720);
 
     nu::Engine::Get().Initialize();
 
     const std::string startupDir = nu::GetWorkingDirectory();
     auto tryAssetRoot = [&](const std::string& path)
-    {
-        nu::SetWorkingDirectory(startupDir);
-        if (!nu::SetWorkingDirectory(path)) return false;
-        return nu::FileExists("Img/darkPurple.png") && nu::FileExists("fonts/Western.ttf");
-    };
+        {
+            nu::SetWorkingDirectory(startupDir);
+            if (!nu::SetWorkingDirectory(path)) return false;
+            return nu::FileExists("Img/BG.png") && nu::FileExists("fonts/Western.ttf");
+        };
 
     if (!tryAssetRoot("."))
     {
@@ -28,10 +28,6 @@ int main()
             "Build/Assets/SpriteGame",
             "../Build/Assets/SpriteGame",
             "../../Build/Assets/SpriteGame",
-            "Assets/SpaceGame",
-            "Build/Assets/SpaceGame",
-            "../Build/Assets/SpaceGame",
-            "../../Build/Assets/SpaceGame",
             "Build"
         };
 
@@ -41,7 +37,7 @@ int main()
         }
     }
 
-    std::unique_ptr<SpaceGame> game = std::make_unique<SpaceGame>();
+    std::unique_ptr<SpriteGame> game = std::make_unique<SpriteGame>();
     game->Initialize();
 
     SDL_Event e;
